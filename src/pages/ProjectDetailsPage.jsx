@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import AddTask from "../components/AddTask";
 
 const API_URL = "https://project-management-api-4641927fee65.herokuapp.com";
 
@@ -29,6 +30,9 @@ function ProjectDetailsPage(props) {
         </>
       )}
 
+      {/*  ADD  */}
+      <AddTask refreshProject={getProject} projectId={projectId} />
+
       {project &&
         project.tasks.map((task) => (
           <li className="TaskCard card" key={task.id}>
@@ -42,7 +46,6 @@ function ProjectDetailsPage(props) {
         <button>Back to projects</button>
       </Link>
 
-      {/*    ADD    */}
       <Link to={`/projects/edit/${projectId}`}>
         <button>Edit Project</button>
       </Link>
