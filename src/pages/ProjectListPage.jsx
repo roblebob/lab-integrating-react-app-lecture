@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const API_URL = "https://project-management-api-4641927fee65.herokuapp.com";
 
-
 function ProjectListPage() {
   const [projects, setProjects] = useState([]);
 
@@ -19,22 +18,23 @@ function ProjectListPage() {
   // by setting the empty dependency array - []
   useEffect(() => {
     getAllProjects();
-  }, [] );
+  }, []);
 
-  
   return (
     <div className="ProjectListPage">
-      
-        {projects.map((project) => {
-          return (
-            <div className="ProjectCard card" key={project.id} >
-              <Link to={`/projects/${project.id}`}>
-                <h3>{project.title}</h3>
-              </Link>
-            </div>
-          );
-        })}     
-       
+      <Link to="/projects/create">
+        <button>Create Project</button>
+      </Link>
+
+      {projects.map((project) => {
+        return (
+          <div className="ProjectCard card" key={project.id}>
+            <Link to={`/projects/${project.id}`}>
+              <h3>{project.title}</h3>
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 }
