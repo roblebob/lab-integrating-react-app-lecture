@@ -1,16 +1,19 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom"; // <== IMPORT
-import Navbar from "./components/Navbar"; // <== IMPORT
-import HomePage from "./pages/HomePage"; // <== IMPORT
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import HomePage from "./pages/HomePage";
+import ProjectListPage from "./pages/ProjectListPage";
 
 function App() {
   return (
     <div className="App">
-      {/* Below: ADD <Navbar>, <Routes> & <Route> */}
       <Navbar />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+
+        {/*    ADD    */}
+        <Route path="/projects" element={<ProjectListPage />} />
       </Routes>
     </div>
   );
